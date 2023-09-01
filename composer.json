@@ -14,10 +14,12 @@
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.3.*",
+        "symfony/messenger": "6.3.*",
         "symfony/monolog-bundle": "^3.8",
         "symfony/runtime": "6.3.*",
         "symfony/security-bundle": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/yaml": "6.3.*",
+        "telegram-bot-php/core": "^1.0"
     },
     "config": {
         "allow-plugins": {
