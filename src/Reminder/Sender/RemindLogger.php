@@ -9,25 +9,16 @@ use Psr\Log\LoggerInterface;
 
 class RemindLogger extends RemindActionHandler
 {
-    /**
-     * @param LoggerInterface $logger
-     * @param RemindActionInterface|null $handler
-     */
     public function __construct(
         private readonly LoggerInterface $logger,
-        ?RemindActionInterface $handler = null,
-    )
-    {
+        RemindActionInterface $handler = null,
+    ) {
         $this->handler = $handler;
     }
 
-    /**
-     * @param RemindDto $remindDto
-     * @return bool
-     */
     protected function process(RemindDto $remindDto): bool
     {
-        $this->logger->info(sprintf('Job id %d save successfully', $remindDto->getJobId()));
+        $this->logger->info(sprintf('Job id %d finished successfully', $remindDto->getJobId()));
 
         return true;
     }

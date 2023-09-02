@@ -11,8 +11,7 @@ class RemindDto
         private readonly string $message,
         private readonly string $receiveId,
         private readonly int $jobId,
-    )
-    {
+    ) {
     }
 
     public function getReceiverName(): string
