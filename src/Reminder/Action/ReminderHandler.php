@@ -11,25 +11,16 @@ use App\Reminder\Storage\ReminderStorageInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
- * Class ReminderHandler
+ * Class ReminderHandler.
  */
 class ReminderHandler implements RemindersHandlerInterface
 {
-    /**
-     * @param ReminderStorageInterface $reminderStorage
-     * @param MessageBusInterface $bus
-     */
     public function __construct(
         private readonly ReminderStorageInterface $reminderStorage,
         private readonly MessageBusInterface $bus,
-    )
-    {
+    ) {
     }
 
-    /**
-     * @param \DateTimeImmutable $runningDate
-     * @return void
-     */
     public function handle(\DateTimeImmutable $runningDate): void
     {
         /** @var Job[] $jobs */

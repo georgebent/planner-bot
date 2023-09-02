@@ -12,16 +12,11 @@ class ReceiverStrategy implements ReceiverInterface
 {
     /**
      * @param ReceiverInterface[] $receivers
-     * @param ReceiverInterface $defaultReceiver
      */
     public function __construct(private readonly array $receivers, private readonly ReceiverInterface $defaultReceiver)
     {
     }
 
-    /**
-     * @param RemindDto $remind
-     * @return ReceiverResponseDto
-     */
     public function send(RemindDto $remind): ReceiverResponseDto
     {
         if (empty($this->receivers[$remind->getReceiverName()])) {

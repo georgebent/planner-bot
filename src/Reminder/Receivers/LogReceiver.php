@@ -14,10 +14,6 @@ class LogReceiver implements ReceiverInterface
     {
     }
 
-    /**
-     * @param RemindDto $remind
-     * @return ReceiverResponseDto
-     */
     public function send(RemindDto $remind): ReceiverResponseDto
     {
         $this->logger->warning(

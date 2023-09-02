@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+
 use function Symfony\Component\Clock\now;
 
 #[AsCommand(
@@ -21,11 +22,6 @@ class RemindCommand extends Command
         parent::__construct($name);
     }
 
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -33,7 +29,7 @@ class RemindCommand extends Command
         $date = new \DateTimeImmutable();
 
         // Todo: after adding cron set to date = now()
-        $date = $date->setDate(2023, 9, 31)->setTime(10, 0, 21);
+        $date = $date->setDate(2023, 11, 30)->setTime(10, 0, 21);
 
         $this->remindersHandler->handle($date);
         $io->success('Reminder run');

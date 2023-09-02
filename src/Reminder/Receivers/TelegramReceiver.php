@@ -38,8 +38,6 @@ class TelegramReceiver implements ReceiverInterface
             )
         );
 
-
-
         return new ReceiverResponseDto($responseMessage, $result->isOk());
     }
 }

@@ -7,7 +7,7 @@ namespace App\Reminder\Sender;
 use App\Reminder\Dto\RemindDto;
 
 /**
- * Interface RemindActionInterface
+ * Interface RemindActionInterface.
  */
 interface RemindActionInterface
 {

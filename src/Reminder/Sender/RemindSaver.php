@@ -11,24 +11,14 @@ use Psr\Log\LoggerInterface;
 
 class RemindSaver extends RemindActionHandler
 {
-    /**
-     * @param EntityManagerInterface $entityManager
-     * @param LoggerInterface $logger
-     * @param RemindActionInterface|null $handler
-     */
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly LoggerInterface $logger,
-        ?RemindActionInterface $handler = null,
-    )
-    {
+        RemindActionInterface $handler = null,
+    ) {
         $this->handler = $handler;
     }
 
-    /**
-     * @param RemindDto $remindDto
-     * @return bool
-     */
     protected function process(RemindDto $remindDto): bool
     {
         $job = $this->entityManager->getRepository(Job::class)->find($remindDto->getJobId());

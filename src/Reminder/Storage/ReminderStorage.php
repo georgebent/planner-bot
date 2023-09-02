@@ -12,6 +12,7 @@ class ReminderStorage implements ReminderStorageInterface
     public function __construct(private readonly EntityManagerInterface $entityManager)
     {
     }
+
     public function getRemindsForRun(\DateTimeImmutable $date): array
     {
         $date = $date->setTime((int) $date->format('H'), (int) $date->format('i'));
