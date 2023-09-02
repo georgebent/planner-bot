@@ -26,12 +26,11 @@ class RemindCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $date = new \DateTimeImmutable();
+        // $date = new \DateTimeImmutable();
+        // $date = $date->setDate(2023, 12, 31)->setTime(10, 0, 21);
+        // $this->remindersHandler->handle($date);
 
-        // Todo: after adding cron set to date = now()
-        $date = $date->setDate(2023, 11, 30)->setTime(10, 0, 21);
-
-        $this->remindersHandler->handle($date);
+        $this->remindersHandler->handle(now());
         $io->success('Reminder run');
 
         return Command::SUCCESS;

@@ -6,7 +6,7 @@ namespace App\Reminder\Action;
 
 use App\Entity\Job;
 use App\Message\RemindMessage;
-use App\Reminder\Dto\RemindDto;
+use App\Reminder\Hydrator\JobToRemindDtoHydrate;
 use App\Reminder\Storage\ReminderStorageInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 
@@ -27,12 +27,7 @@ class ReminderHandler implements RemindersHandlerInterface
         $jobs = $this->reminderStorage->getRemindsForRun($runningDate);
 
         foreach ($jobs as $job) {
-            $dto = new RemindDto(
-                $job->getUserReceiver()?->getReceiver()?->getName(),
-                $job->getMessage(),
-                $job->getUserReceiver()->getToken(),
-                $job->getId(),
-            );
+            $dto = JobToRemindDtoHydrate::hydrate($job);
 
             $this->bus->dispatch(new RemindMessage($dto));
         }
