@@ -22,7 +22,7 @@ class UserReceiver
     #[ORM\JoinColumn(nullable: false)]
     private ?Receiver $receiver = null;
 
-    #[ORM\ManyToOne(inversedBy: 'userReceivers')]
+    #[ORM\ManyToOne(cascade: ['persist'], inversedBy: 'userReceivers')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
