@@ -30,7 +30,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: UserReceiver::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: UserReceiver::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $userReceivers;
 
     public function __construct()
